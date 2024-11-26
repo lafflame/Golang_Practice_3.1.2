@@ -10,12 +10,15 @@ import (
 )
 
 func areAnagrams(s, ss string) bool {
+	// Переводим строки в слайсы для дальнейшей сортировки и сравнения
 	slice1 := []rune(s)
 	slice2 := []rune(ss)
 
+	// Сортируем слайсы
 	sort.Slice(slice1, func(i, j int) bool { return slice1[i] < slice1[j] })
 	sort.Slice(slice2, func(i, j int) bool { return slice2[i] < slice2[j] })
 
+	// Возвращаем результат сравнения слайсов
 	return string(slice1) == string(slice2)
 }
 
